@@ -1,7 +1,9 @@
 package reservations;
+import java.util.ArrayList;
 import java.util.HashMap;
 import enums.*;
 import views.CompleteReservationGUI;
+import views.MainScreen;
 
 public class Main {
 	
@@ -19,11 +21,11 @@ public class Main {
 		put(RoomExtras.TERRASE, 20);
 	}};
 	
-	public static int calcPrice() {
-		if(gui.nightCount == 0 || gui.extras == null || gui.type == null)
+	public static int calcPrice(int nightCount, ArrayList<RoomExtras> extras, RoomType type) {
+		if(nightCount == 0 || extras == null || type == null)
 			return -1;
-		var totalPrice = gui.nightCount * typePriceMap.get(gui.type);
-		for(var extra: gui.extras) {
+		var totalPrice = nightCount * typePriceMap.get(type);
+		for(var extra: extras) {
 			totalPrice += extraPriceMap.get(extra);
 		}
 		return totalPrice;
@@ -31,6 +33,6 @@ public class Main {
 	
 	
 	public static void main(String[] args) {
-		gui = new CompleteReservationGUI();
+		new MainScreen();
 	}
 }
