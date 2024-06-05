@@ -1,0 +1,13 @@
+{
+  "name": "dist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd ~/Documents/deliiska/JavaSchoolReservations && javac -d dist/ src/**/*.java",
+    "start": "cd ~/Documents/deliiska/JavaSchoolReservations/dist && java reservations.Main"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
